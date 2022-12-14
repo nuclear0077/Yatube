@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %} Публикации избранных авторов {% endblock %}
+{% block content %}
+  <h1>Публикации избранных авторов</h1>
+  {% include 'includes/switcher.html' %}
+  {% for post in page_obj %}
+    {% include 'includes/articles.html' with index=True %}
+    {% if not forloop.last %}
+      <hr>
+    {% endif %}
+  {% endfor %}
+  {% include 'includes/paginator.html' %}
+{% endblock %}

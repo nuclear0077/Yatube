@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %} Профайл пользователя {{ author }} {% endblock %}
+{% block content %}
+  <div class="mb-5">
+    <h1>Все посты пользователя {{ author }} </h1>
+    <h3>Всего постов: {{ author.posts.count }} </h3>
+    {% include 'includes/un-subscribe-button.html' %}
+  </div>
+  {% for post in page_obj %}
+    {% include 'includes/articles.html' with profile=True %}
+  {% endfor %}
+  <hr>
+  {% include 'includes/paginator.html' %}
+{% endblock %}
